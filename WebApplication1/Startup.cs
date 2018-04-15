@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApplication1.Filters;
-using WebApplication2;
+using DependencyInjectionSample.Filters;
 
-namespace WebApplication1
+
+namespace DependencyInjectionSample
 {
     public class Startup
     {
@@ -25,7 +25,7 @@ namespace WebApplication1
         {
             services.Configure<person>(Configuration); //依赖注入 
             services.AddMvc(options=> {
-                //options.Filters.Add(new ExceptionFilter());
+                options.Filters.Add(new ExceptionFilter());
             });
         }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace WebApplication1.Filters
+namespace DependencyInjectionSample.Filters
 {
     public class ExceptionFilter : IExceptionFilter
     {

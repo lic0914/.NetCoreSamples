@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CoreConsole
 {
@@ -8,8 +9,9 @@ namespace CoreConsole
     {
         static void Main(string[] args)
         {
-
+            Console.ReadKey();
         }
+       
         /*json文件读取
         static void Main(string[] args)
         {

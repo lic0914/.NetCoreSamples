@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WebApplication1.Controllers
+namespace DependencyInjectionSample.Controllers
 {
     public class TestController : Controller
     {

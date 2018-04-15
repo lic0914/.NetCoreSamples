@@ -4,22 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
+using DependencyInjectionSample.Models;
 using Microsoft.Extensions.Configuration;
 
-namespace WebApplication1.Controllers
+namespace DependencyInjectionSample.Controllers
 {
     public class HomeController : Controller
     {
         private IConfiguration _configuration;
+        private person per;
+        
         public HomeController(IConfiguration configuration)
         {
-
+            per = configuration.Get<person>();
         }
         public IActionResult Index()
         {
             
-            return View();
+            return Content(per.Name+per.Hobby);
         }
 
         public IActionResult About()

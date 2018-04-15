@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
-namespace WebApplication2
+namespace ConfigbinderSample
 {
     public class Startup
     {
@@ -22,16 +22,29 @@ namespace WebApplication2
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,IApplicationLifetime applicationLifetime)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            /* 模拟Asp.Net Mvc 的 global.cs 的Application事件 */
+            applicationLifetime.ApplicationStarted.Register(() =>
+            {
+                Console.WriteLine("Application Started");
+            });
+            applicationLifetime.ApplicationStopping.Register(() =>
+            {
+                Console.WriteLine("Application Stopping");
+            });
+            applicationLifetime.ApplicationStopped.Register(() =>
+            {
+                Console.WriteLine("Application Stopped");
+            });
             app.Run(async (context) =>
             {
                 var p = new person();
